@@ -5,7 +5,8 @@ export async function getFreshGameAssertion(): Promise<string> {
     return env.devAssertion;
   }
 
-  const response = await fetch('/__dev/game-assertion', {
+  const response = await if (!import.meta.env.DEV) return null;
+  fetch('/__dev/game-assertion', {
     headers: { Accept: 'application/json' },
     cache: 'no-store',
   });
