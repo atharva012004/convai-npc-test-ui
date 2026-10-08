@@ -89,7 +89,7 @@ export default defineConfig(({ mode }) => {
       proxy: {
         '/__backend': {
           target: backendUrl,
-          changeOrigin: false,
+          changeOrigin: true,
           rewrite: (path) => path.replace(/^\/__backend/, ''),
         },
       },
